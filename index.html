@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ProductivityBlog.com.ua</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+        <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
+        <script type="text/javascript" src="js/FeedEk.js" ></script>
+	  <script type="text/javascript" src="js/tweecool.min.js" ></script>
+		
+        <script type="text/javascript">
+            $(function () {
+                $("[data-role='header'], [data-role='footer']").toolbar();
+                $("[data-role=panel]").panel().enhanceWithin();
+            });
+        </script>
+        <style>
+
+            .ui-panel-inner {
+                padding:0px;
+            }
+			
+			.feedEkList, #tweets ul{list-style:none outside none;background-color:#FFFFFF; border:1px solid #D3CAD7; padding:4px 6px; color:#3E3E3E;}
+.feedEkList li, #tweets li {border-bottom:1px solid #D3CAD7; padding:5px;}
+.feedEkList li:last-child, #tweets li:last-child{border-bottom:none;}
+.itemTitle a, #tweets li a{font-weight:bold;color:black !important; text-decoration:none  }
+.itemTitle a:hover, #tweets li a:hover{ text-decoration:underline }
+.itemDate{font-size:11px;color:#AAAAAA;} 
+#slidesh img {height:36px;}
+ #gplus img {height:56px;}
+
+
+
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#divRss').FeedEk({
+                    FeedUrl: 'http://productivityblog.com.ua/?feed=rss2',
+                    MaxCount: 20,
+					 ShowDesc : true,
+    ShowPubDate:false,
+    DescCharacterLimit:500,
+    TitleLinkTarget:'_blank'
+                });
+				
+				$('#tweets').tweecool({
+username : 'liketaurus',
+limit: 25,
+profile_image:false,
+show_time:false
+});
+
+ 
+                $('#slidesh').FeedEk({
+                    FeedUrl: 'http://www.slideshare.net/mobile/rss/user/liketaurus',
+                    MaxCount: 30,
+					 ShowDesc : true,
+    ShowPubDate:false,
+    DescCharacterLimit:500,
+    TitleLinkTarget:'_blank'
+                });
+
+
+				 $('#gplus').FeedEk({
+                    FeedUrl: 'http://gplus-to-rss22.appspot.com/rss/103680764552672827709',
+                    MaxCount: 30,
+					 ShowDesc : true,
+    ShowPubDate:false,
+    DescCharacterLimit:500,
+    TitleLinkTarget:'_blank'
+                });
+				
+            });
+        </script>                
+
+
+
+    </head>
+    <body>
+
+        <div data-role="panel" id="navpanel" data-theme="a"
+             data-display="overlay" data-position="left">
+            <div data-role="content">
+                <div data-role="controlgroup" data-corners="false" style="margin-top:0px;">
+                    <a data-role="button"   href="#home" style="text-align:left;"><i class="fa fa-home fa-fw"></i>&nbsp; Головна </a>
+                    <a  data-role="button"  href="#news"  style="text-align:left;" ><i class="fa fa-rss fa-fw"></i>&nbsp; Новини</a>
+                    <a data-role="button"  href="#twitter"  style="text-align:left;"  ><i class="fa fa-twitter fa-fw"></i>&nbsp; Твіттер</a>  
+				  <a data-role="button"  href="#google"  style="text-align:left;"  ><i class="fa fa-google-plus fa-fw"></i>&nbsp; Google+</a>	
+				  <a data-role="button"  href="#slides"  style="text-align:left;"  ><i class="fa fa-slideshare fa-fw"></i>&nbsp; Презентаціі</a>			  
+                    <a data-role="button"  href="#user" style="text-align:left;" ><i class="fa fa-user fa-fw"></i>&nbsp; Про мене</a>
+
+                    <a data-role="button"  href="#" style="text-align:left;" onclick='navigator.app.exitApp();'  ><i class="fa fa-sign-out fa-fw"></i>&nbsp; Вихід</a>
+                </div>
+                <br/><br/><br/>
+                <div>
+                    <a href="#header" data-role="button" data-rel="close" style="text-align:center;width:auto;margin-left:50%;bottom:10px;position:fixed;"><i class="fa fa-chevron-circle-left"></i>&nbsp; Назад</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div id="header" data-role="header" style="text-align:center;" data-position="fixed" data-theme="a">
+            <a id="bars-button" href="#navpanel" > <i class="fa fa-bars fa-2x"></i> </a>
+            <h1 style="margin-top:0.5em;" > <i class="fa fa-globe"></i> &nbsp;  ProductivityBlog.com.ua</h1>
+        </div>
+
+        <div data-role="page" id="home">
+
+            <div id="content" data-role="content">
+
+                <!--center>
+                    <br/><br/><br/>
+                    <i class="fa fa-spinner fa-pulse fa-4x" ></i><br/><br/>
+                    Зачекайте будь ласка...
+                </center-->
+				
+			  <center>                   
+				<i class="fa fa-home fa-4x" ></i></center>
+				
+			  <table width="100%" cellpadding="20px">
+				<tr>
+				  <td align="right">
+					<a data-role="button" href="#news" style="width:200px;height:200px;text-align:center;vertical-align:middle;"><br/><br/><i class="fa fa-rss fa-fw fa-5x" ></i>&nbsp;<br/> Новини</a>
+				  </td>
+				  <td align="left">
+					<a data-role="button" href="#twitter" style="width:200px;height:200px;text-align:center;vertical-align:middle;"><br/><br/><i class="fa fa-twitter fa-fw fa-5x"></i>&nbsp;<br/> Твіттер</a>
+				  </td>
+				</tr>
+				<tr>
+				  <td align="right">
+					<a data-role="button" href="#google" style="width:200px;height:200px;text-align:center;vertical-align:middle;"><br/><br/><i class="fa fa-google-plus fa-fw fa-5x"></i>&nbsp;<br/> Google+</a>
+				  </td>
+				  <td align="left">
+					<a data-role="button" href="#slides" style="width:200px;height:200px;text-align:center;vertical-align:middle;"><br/><br/><i class="fa fa-slideshare fa-fw fa-5x"></i>&nbsp;<br/> Презентаціі</a>
+				  </td>
+				</tr>
+			  </table>
+            </div>
+
+        </div>
+
+        <div data-role="page" id="news">
+
+
+            <div id="content" data-role="content">
+
+                <center>                   
+                    <i class="fa fa-newspaper-o fa-4x" ></i></center>
+
+  <div id="divRss"></div>
+  
+  <center>
+
+	<a href="http://feeds.feedburner.com/Productivityblogcomua" target="_blank" data-role="button" data-theme="a">Хочете ще? &nbsp;<i class="fa fa-external-link"></i> </a></center>
+
+            </div>
+
+        </div>
+
+        <div data-role="page" id="twitter">
+
+            <div id="content" data-role="content">
+
+                <center>
+
+                    <i class="fa fa-twitter fa-4x" ></i></center>
+			  <div id="tweets">
+                </div>
+
+			  <center>
+				<a href="https://mobile.twitter.com/liketaurus" target="_blank" data-role="button" data-theme="a">Хочете ще? &nbsp;<i class="fa fa-external-link"></i> </a></center>
+			  
+			  
+				
+            </div>
+        </div>
+		
+	  <div data-role="page" id="slides">
+
+		<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+
+		<div id="content" data-role="content">
+
+		  <center>
+			
+			<i class="fa fa-slideshare fa-4x" ></i></center>
+			
+		  <div id="slidesh">
+		  </div>
+		  
+		  <center>
+
+			<a href="http://slideshare.net/liketaurus" target="_blank" data-role="button" data-theme="a">Хочете ще? &nbsp;<i class="fa fa-external-link"></i> </a></center>
+		  
+
+		</div>
+
+	  </div>
+
+	  
+	  <div data-role="page" id="google" >
+		
+		<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+
+		<div id="content" data-role="content">
+
+		  <center>
+
+			<i class="fa fa-google-plus fa-4x" ></i></center>
+
+		  <div id="gplus">
+		  </div>
+
+		  <center>
+
+			<a href="https://plus.google.com/+AlexanderBabichMCT" target="_blank" data-role="button" data-theme="a">Хочете ще? &nbsp;<i class="fa fa-external-link"></i> </a></center>
+
+
+		</div>
+		
+		
+		
+	  </div>
+            <div data-role="page" id="user">
+
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+
+                <div id="content" data-role="content">
+
+                    <center>                  
+                        <i class="fa fa-user fa-4x" ></i></center>
+
+                </div>
+
+            </div>
+
+
+
+            <div id="footer" data-role="footer" style="text-align:center;" data-position="fixed" data-theme="a">
+                <h2> Бабич О.В.<i class="fa fa-copyright"></i> 2016</h2>
+            </div>
+
+
+
+
+    </body>
+</html>
